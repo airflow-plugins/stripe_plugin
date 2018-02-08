@@ -21,3 +21,4 @@ This operator composes the logic for this plugin. It fetches the stripe specifie
 - `s3_key`: The input s3 key.  
 - `fields`: *optional* list of fields that you want to get from the object. If *None*, then this will get all fields for the object
 - `replication_key_value`: *(optional)*  value of the replication key, if needed. The operator will import only the objects created after the object with this id.
+
