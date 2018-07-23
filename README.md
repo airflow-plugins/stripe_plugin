@@ -1,6 +1,10 @@
 # Plugin - Stripe to S3
 
 This plugin moves data from the [Stripe](https://stripe.com/docs/api) API to S3 based on the specified object
+## Creating a connection
+To create a connection with stripe using the Airflow UI you need to open the interface > Admin dropdown menu > click on "connections" > create. In "extras" field, specify your api key from stripe in the following format:
+``` {"api_key": "your_secret_api_key"} ```
+Leave all the other fields blank. 
 
 ## Hooks
 ### StripeHook
