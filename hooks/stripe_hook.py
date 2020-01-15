@@ -49,7 +49,7 @@ class StripeHook(BaseHook):
             method_to_call = 'all'
         if replication_key_value:
             stripe_response = getattr(stripe_endpoint, method_to_call)(
-                ending_before=replication_key_value, **kwargs)
+                starting_after=replication_key_value, **kwargs)
         else:
             stripe_response = getattr(stripe_endpoint, method_to_call)(**kwargs)
 

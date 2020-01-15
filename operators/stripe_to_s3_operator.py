@@ -57,7 +57,7 @@ class StripeToS3Operator(BaseOperator, SkipMixin):
     :type replication_key_value:    String
     """
 
-    template_field = ('s3_key', )
+    template_fields = ("s3_key", "replication_key_value")
 
     @apply_defaults
     def __init__(self,
@@ -122,7 +122,7 @@ class StripeToS3Operator(BaseOperator, SkipMixin):
                 return True
 
             else:
-                dest_s3 = S3Hook(s3_conn_id=self.s3_conn_id)
+                dest_s3 = S3Hook(self.s3_conn_id)
                 dest_s3.load_file(
                     filename=tmp.name,
                     key=self.s3_key,
@@ -130,7 +130,7 @@ class StripeToS3Operator(BaseOperator, SkipMixin):
                     replace=True
 
                 )
-                dest_s3.connection.close()
+
                 tmp.close()
 
     def filter_fields(self, result):
