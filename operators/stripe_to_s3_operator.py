@@ -57,7 +57,7 @@ class StripeToS3Operator(BaseOperator, SkipMixin):
     :type replication_key_value:    String
     """
 
-    template_fields = ("s3_key", )
+    template_fields = ("s3_key", "replication_key_value")
 
     @apply_defaults
     def __init__(self,
